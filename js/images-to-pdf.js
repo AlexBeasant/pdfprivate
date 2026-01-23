@@ -162,10 +162,10 @@
                     </svg>
                 </div>
                 <div class="w-12 h-12 flex-shrink-0 ml-2 rounded overflow-hidden bg-gray-100">
-                    <img src="${img.dataUrl}" alt="${img.file.name}" class="w-full h-full object-cover">
+                    <img src="${img.dataUrl}" alt="${Utils.escapeHtml(img.file.name)}" class="w-full h-full object-cover">
                 </div>
                 <div class="file-info">
-                    <div class="file-name">${img.file.name}</div>
+                    <div class="file-name">${Utils.escapeHtml(img.file.name)}</div>
                     <div class="file-meta">
                         ${img.width} x ${img.height} px • ${Utils.formatFileSize(img.file.size)}
                     </div>

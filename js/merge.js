@@ -120,7 +120,7 @@
                     </svg>
                 </div>
                 <div class="file-info">
-                    <div class="file-name">${f.file.name}</div>
+                    <div class="file-name">${Utils.escapeHtml(f.file.name)}</div>
                     <div class="file-meta">
                         ${Utils.formatFileSize(f.file.size)} • ${f.pageCount} page${f.pageCount !== 1 ? 's' : ''}
                     </div>

@@ -27,6 +27,17 @@ const Utils = {
     },
 
     /**
+     * Escape HTML special characters to prevent XSS
+     * @param {string} str - String to escape
+     * @returns {string} Escaped string safe for innerHTML
+     */
+    escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    },
+
+    /**
      * Trigger file download
      * @param {Blob|Uint8Array} data - File data
      * @param {string} filename - Download filename
