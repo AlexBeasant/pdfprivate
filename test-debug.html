@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Tools Debug Test</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+        .test { padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .pass { background: #d4edda; border: 1px solid #c3e6cb; }
+        .fail { background: #f8d7da; border: 1px solid #f5c6cb; }
+        .pending { background: #fff3cd; border: 1px solid #ffeaa7; }
+        h1 { color: #333; }
+        h2 { color: #666; margin-top: 30px; }
+        pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        #dropzone { border: 2px dashed #ccc; padding: 40px; text-align: center; margin: 20px 0; }
+        #dropzone.dragover { border-color: #22c55e; background: #f0fdf4; }
+    </style>
+</head>
+<body>
+    <h1>PDF Tools Debug Test</h1>
+
+    <h2>1. Library Loading Tests</h2>
+    <div id="lib-tests"></div>
+
+    <h2>2. Generate Test PDF</h2>
+    <button id="generatePdf" style="padding: 15px 30px; background: #22c55e; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+        Generate Sample 3-Page PDF
+    </button>
+    <div id="generate-result"></div>
+
+    <h2>3. PDF.js Rendering Test</h2>
+    <div id="dropzone">
+        Drop a PDF here or <input type="file" id="fileInput" accept=".pdf">
+    </div>
+    <div id="pdf-test-result"></div>
+    <canvas id="testCanvas" style="border: 1px solid #ccc; max-width: 100%;"></canvas>
+
+    <h2>4. Console Errors</h2>
+    <pre id="errors">No errors captured yet...</pre>
+
+    <!-- Load libraries in order -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <script>
+        // Capture errors
+        const errors = [];
+        window.onerror = function(msg, url, line, col, error) {
+            errors.push(`${msg} at ${url}:${line}:${col}`);
+            document.getElementById('errors').textContent = errors.join('\n');
+            return false;
+        };
+
+        // Test results container
+        const libTests = document.getElementById('lib-tests');
+
+        function addTest(name, passed, details = '') {
+            const div = document.createElement('div');
+            div.className = `test ${passed ? 'pass' : 'fail'}`;
+            div.innerHTML = `<strong>${passed ? '✓' : '✗'} ${name}</strong>${details ? `<br><small>${details}</small>` : ''}`;
+            libTests.appendChild(div);
+        }
+
+        // Run library tests
+        window.addEventListener('DOMContentLoaded', function() {
+            // Test pdf-lib
+            try {
+                if (typeof PDFLib !== 'undefined' && PDFLib.PDFDocument) {
+                    addTest('pdf-lib loaded', true, `Version available, PDFDocument: ${typeof PDFLib.PDFDocument}`);
+                } else {
+                    addTest('pdf-lib loaded', false, 'PDFLib or PDFDocument not found');
+                }
+            } catch(e) {
+                addTest('pdf-lib loaded', false, e.message);
+            }
+
+            // Test PDF.js
+            try {
+                if (typeof pdfjsLib !== 'undefined') {
+                    addTest('PDF.js loaded', true, `Version: ${pdfjsLib.version || 'unknown'}`);
+
+                    // Set worker
+                    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js';
+                    addTest('PDF.js worker configured', true);
+                } else {
+                    addTest('PDF.js loaded', false, 'pdfjsLib not found');
+                }
+            } catch(e) {
+                addTest('PDF.js loaded', false, e.message);
+            }
+
+            // Test JSZip
+            try {
+                if (typeof JSZip !== 'undefined') {
+                    addTest('JSZip loaded', true, `JSZip constructor: ${typeof JSZip}`);
+                } else {
+                    addTest('JSZip loaded', false, 'JSZip not found');
+                }
+            } catch(e) {
+                addTest('JSZip loaded', false, e.message);
+            }
+        });
+
+        // Generate test PDF
+        document.getElementById('generatePdf').addEventListener('click', async function() {
+            const resultDiv = document.getElementById('generate-result');
+            resultDiv.innerHTML = '<div class="test pending">Generating PDF...</div>';
+
+            try {
+                const pdfDoc = await PDFLib.PDFDocument.create();
+
+                // Create 3 pages with different colors
+                const colors = [
+                    { r: 0.95, g: 0.95, b: 1 },    // Light blue
+                    { r: 0.95, g: 1, b: 0.95 },    // Light green
+                    { r: 1, g: 0.95, b: 0.95 }     // Light red
+                ];
+
+                for (let i = 0; i < 3; i++) {
+                    const page = pdfDoc.addPage([612, 792]); // Letter size
+                    const { width, height } = page.getSize();
+
+                    // Fill background
+                    page.drawRectangle({
+                        x: 0, y: 0, width, height,
+                        color: PDFLib.rgb(colors[i].r, colors[i].g, colors[i].b)
+                    });
+
+                    // Add text
+                    const font = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+                    page.drawText(`Test Page ${i + 1}`, {
+                        x: 50,
+                        y: height - 100,
+                        size: 48,
+                        font: font,
+                        color: PDFLib.rgb(0.2, 0.2, 0.2)
+                    });
+
+                    page.drawText(`This is a sample PDF for testing Private PDF Tools.`, {
+                        x: 50,
+                        y: height - 160,
+                        size: 16,
+                        font: font,
+                        color: PDFLib.rgb(0.4, 0.4, 0.4)
+                    });
+
+                    page.drawText(`Generated: ${new Date().toLocaleString()}`, {
+                        x: 50,
+                        y: 50,
+                        size: 12,
+                        font: font,
+                        color: PDFLib.rgb(0.6, 0.6, 0.6)
+                    });
+                }
+
+                const pdfBytes = await pdfDoc.save();
+
+                // Download the PDF
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'test-sample.pdf';
+                a.click();
+                URL.revokeObjectURL(url);
+
+                resultDiv.innerHTML = '<div class="test pass">✓ Sample PDF generated and downloaded! Use this to test the tools.</div>';
+
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="test fail">✗ Error generating PDF: ${error.message}</div>`;
+            }
+        });
+
+        // PDF rendering test
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const resultDiv = document.getElementById('pdf-test-result');
+        const canvas = document.getElementById('testCanvas');
+
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('dragover');
+        });
+
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.classList.remove('dragover');
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type === 'application/pdf') {
+                testPdfRendering(file);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                testPdfRendering(file);
+            }
+        });
+
+        async function testPdfRendering(file) {
+            resultDiv.innerHTML = '<div class="test pending">Testing PDF rendering...</div>';
+
+            try {
+                // Read file
+                const arrayBuffer = await file.arrayBuffer();
+                resultDiv.innerHTML += `<div class="test pass">✓ File read: ${file.name} (${(file.size/1024).toFixed(1)} KB)</div>`;
+
+                // IMPORTANT: Make copies of the ArrayBuffer for each library
+                // PDF.js detaches the buffer, so we need separate copies
+                const pdfJsBuffer = arrayBuffer.slice(0);
+                const pdfLibBuffer = arrayBuffer.slice(0);
+
+                // Load with PDF.js
+                const loadingTask = pdfjsLib.getDocument({ data: pdfJsBuffer });
+                const pdf = await loadingTask.promise;
+                resultDiv.innerHTML += `<div class="test pass">✓ PDF.js loaded: ${pdf.numPages} pages</div>`;
+
+                // Render first page
+                const page = await pdf.getPage(1);
+                const viewport = page.getViewport({ scale: 1.5 });
+
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                const context = canvas.getContext('2d');
+                await page.render({
+                    canvasContext: context,
+                    viewport: viewport
+                }).promise;
+
+                resultDiv.innerHTML += `<div class="test pass">✓ Page 1 rendered to canvas (${canvas.width}x${canvas.height})</div>`;
+
+                // Test converting to image
+                const dataUrl = canvas.toDataURL('image/png');
+                resultDiv.innerHTML += `<div class="test pass">✓ Canvas converted to PNG (${(dataUrl.length/1024).toFixed(1)} KB data URL)</div>`;
+
+                // Test pdf-lib reading (using separate buffer copy)
+                const pdfDoc = await PDFLib.PDFDocument.load(pdfLibBuffer);
+                resultDiv.innerHTML += `<div class="test pass">✓ pdf-lib loaded document: ${pdfDoc.getPageCount()} pages</div>`;
+
+                resultDiv.innerHTML += `<div class="test pass" style="background: #28a745; color: white;"><strong>All tests passed! PDF rendering works correctly.</strong></div>`;
+
+            } catch (error) {
+                resultDiv.innerHTML += `<div class="test fail">✗ Error: ${error.message}<br><pre>${error.stack}</pre></div>`;
+                errors.push(error.message);
+                document.getElementById('errors').textContent = errors.join('\n');
+            }
+        }
+    </script>
+</body>
+</html>
