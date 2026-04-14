@@ -4,174 +4,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - PDF Private</title>
-    <meta name="description" content="Terms of Service for PDF Private.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2322c55e'/%3E%3Cstop offset='100%25' style='stop-color:%230d9488'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Cpath d='M30 25h25l15 15v35a5 5 0 01-5 5H30a5 5 0 01-5-5V30a5 5 0 015-5z' fill='white'/%3E%3Cpath d='M55 25v15h15' fill='none' stroke='white' stroke-width='2'/%3E%3Crect x='32' y='45' width='20' height='3' rx='1' fill='%2322c55e'/%3E%3Crect x='32' y='52' width='28' height='3' rx='1' fill='%2322c55e'/%3E%3Crect x='32' y='59' width='16' height='3' rx='1' fill='%2322c55e'/%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                        }
-                    }
-                }
-            }
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            color: #1a1a2e;
+            background: #f8f9fa;
+            line-height: 1.7;
         }
-    </script>
+        header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a { color: white; text-decoration: none; }
+        header .logo { font-size: 1.25rem; font-weight: 700; }
+        header nav a { margin-left: 1.5rem; font-size: 0.95rem; opacity: 0.85; }
+        header nav a:hover { opacity: 1; }
+        .container {
+            max-width: 780px;
+            margin: 3rem auto;
+            padding: 0 1.5rem 4rem;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+        .last-updated {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+        .highlight-box {
+            background: #fff3e0;
+            border-left: 4px solid #e65100;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 0 6px 6px 0;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1.3rem;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a2e;
+        }
+        p { margin-bottom: 1rem; }
+        ul {
+            margin: 0.5rem 0 1rem 1.5rem;
+        }
+        li { margin-bottom: 0.4rem; }
+        .important {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            font-size: 0.85rem;
+            border-top: 1px solid #eee;
+        }
+        footer a { color: #666; text-decoration: none; }
+    </style>
 </head>
-<body class="min-h-screen bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm border-b border-gray-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="flex items-center space-x-2 group">
-                    <div class="w-9 h-9 bg-gradient-to-br from-primary-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/25 group-hover:shadow-primary-500/40 transition-shadow">
-                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 2l5 5h-5V4zM8 13h8v2H8v-2zm0 4h5v2H8v-2z"/>
-                        </svg>
-                    </div>
-                    <span class="text-xl" style="font-family: 'Space Grotesk', sans-serif;">
-                        <span class="font-bold text-gray-900">PDF</span><span class="font-medium text-primary-600">Private</span>
-                    </span>
-                </a>
-                <div class="privacy-badge">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>100% Private</span>
-                </div>
-            </div>
-        </div>
+<body>
+
+<header>
+    <a href="/" class="logo">PDF Private</a>
+    <nav>
+        <a href="/">Tools</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
     </nav>
+</header>
 
-    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <a href="index.html" class="inline-flex items-center text-sm text-gray-600 hover:text-primary-600 mb-6">
-            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-            </svg>
-            Back to Tools
-        </a>
+<div class="container">
 
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 sm:p-12">
-            <h1 class="text-3xl font-bold text-gray-900 mb-2">Terms of Service</h1>
-            <p class="text-gray-500 mb-8">Last updated: January 2025</p>
+    <h1>Terms of Service</h1>
+    <p class="last-updated">Last updated: April 14, 2026</p>
 
-            <div class="prose prose-gray max-w-none">
-                <p class="text-gray-600 mb-6">
-                    Please read these Terms of Service carefully before using PDF Private. By using our service, you agree to be bound by these terms.
-                </p>
+    <div class="highlight-box">
+        By using PDF Private, you agree to these terms. Please read them carefully.
+        PDF Private provides client-side tools only. We do not access, process, store, or transmit your files.
+        You are solely responsible for your files, your device, and how you use this service.
+    </div>
 
-                <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">1. Service Description</h2>
-                <p class="text-gray-600 mb-4">
-                    PDF Private provides free, browser-based tools for manipulating PDF files and images. All processing is performed locally in your web browser using JavaScript. No files are uploaded to any server.
-                </p>
+    <h2>1. Service Description</h2>
+    <p>PDF Private ("the Service", "we", "us") provides free, browser-based tools for processing PDF files. All file processing is performed locally on your device using JavaScript and WebAssembly technologies running within your web browser.</p>
+    <p>The Service consists solely of static web pages and client-side code. We do not operate any server-side file processing, file storage, or file transmission infrastructure. We have no ability to access, view, intercept, or retrieve any file you process using our tools.</p>
 
-                <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">2. "As Is" Service</h2>
-                <p class="text-gray-600 mb-4">
-                    This service is provided "as is" and "as available" without any warranties, express or implied, including but not limited to:
-                </p>
-                <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
-                    <li>Merchantability or fitness for a particular purpose</li>
-                    <li>Accuracy, reliability, or completeness of any results</li>
-                    <li>Uninterrupted or error-free operation</li>
-                    <li>Compatibility with all PDF files or formats</li>
-                </ul>
+    <h2>2. No Access to Your Files</h2>
+    <div class="important">
+        <p><strong>PDF Private does not and cannot access your files.</strong></p>
+        <p>When you use any tool on this website, your files are loaded into your browser's local memory and processed entirely on your own device. No file data is sent to our servers or any third party through our Service. We have no upload endpoints, no file storage systems, and no server-side processing capabilities.</p>
+        <p>Accordingly, PDF Private bears no responsibility whatsoever for the contents, security, confidentiality, integrity, or handling of any files you process using this Service. Any file processing you perform is performed by you, on your device, using open-source client-side code that we make available for your convenience.</p>
+    </div>
 
-                <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">3. User Responsibility</h2>
-                <p class="text-gray-600 mb-4">
-                    By using this service, you acknowledge and agree that:
-                </p>
-                <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
-                    <li><strong>You assume all risk</strong> associated with using this service</li>
-                    <li><strong>You should always keep backups</strong> of your original files before processing</li>
-                    <li><strong>You are responsible</strong> for verifying that output files meet your requirements</li>
-                    <li><strong>You understand</strong> that results may vary depending on the complexity of your files</li>
-                </ul>
+    <h2>3. User Responsibilities</h2>
+    <p>You are solely responsible for:</p>
+    <ul>
+        <li>Ensuring you have the legal right to process any files you use with this Service.</li>
+        <li>The security of your own device, operating system, browser, browser extensions, and network environment.</li>
+        <li>Maintaining your own backups of any files before processing them.</li>
+        <li>Verifying that any output produced by the tools is accurate, complete, and suitable for your intended purpose.</li>
+        <li>Compliance with all applicable laws and regulations in your jurisdiction.</li>
+    </ul>
+    <p>You acknowledge that the security and privacy of your files depends entirely on factors within your own control, including but not limited to: your device security, browser configuration, installed extensions, network security, and physical access to your device.</p>
 
-                <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">4. Limitation of Liability</h2>
-                <p class="text-gray-600 mb-4">
-                    To the maximum extent permitted by law, we shall not be liable for any:
-                </p>
-                <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
-                    <li>Data loss or file corruption</li>
-                    <li>Indirect, incidental, special, or consequential damages</li>
-                    <li>Loss of profits, revenue, or business opportunities</li>
-                    <li>Damages resulting from your use or inability to use the service</li>
-                    <li>Damages caused by errors, omissions, or inaccuracies in the results</li>
-                </ul>
+    <h2>4. No Warranty</h2>
+    <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, RELIABILITY, NON-INFRINGEMENT, AND ANY WARRANTIES ARISING FROM COURSE OF DEALING OR USAGE OF TRADE.</p>
+    <p>Without limiting the foregoing, we make no warranty that:</p>
+    <ul>
+        <li>The tools will produce accurate, complete, or error-free results.</li>
+        <li>The Service will be available, uninterrupted, or free of defects.</li>
+        <li>The client-side code is free of bugs, vulnerabilities, or security issues.</li>
+        <li>The tools will be compatible with your specific browser, device, or operating system.</li>
+        <li>The output files will be suitable for any particular purpose, including legal, regulatory, financial, or medical use.</li>
+    </ul>
 
-                <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">5. Acceptable Use</h2>
-                <p class="text-gray-600 mb-4">
-                    You agree not to use this service to:
-                </p>
-                <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
-                    <li>Process files that you do not have the right to modify</li>
-                    <li>Create, distribute, or modify illegal content</li>
-                    <li>Violate any applicable laws or regulations</li>
-                    <li>Infringe on intellectual property rights of others</li>
-                    <li>Attempt to reverse engineer or exploit the service</li>
-                </ul>
+    <h2>5. Limitation of Liability</h2>
+    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, PDF PRIVATE AND ITS OWNERS, OPERATORS, AFFILIATES, AND CONTRIBUTORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO:</p>
+    <ul>
+        <li>Loss of data, files, or documents.</li>
+        <li>Corruption or degradation of file quality.</li>
+        <li>Unauthorised access to files on your device by third parties.</li>
+        <li>Data breaches or privacy incidents arising from your device, browser, extensions, network, or any other aspect of your computing environment.</li>
+        <li>Loss of profits, revenue, business, or anticipated savings.</li>
+        <li>Any damages arising from your reliance on the output of our tools.</li>
+    </ul>
+    <p>IN NO EVENT SHALL OUR TOTAL AGGREGATE LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR RELATED TO THE USE OF THIS SERVICE EXCEED FIFTY EUROS (€50) OR THE AMOUNT YOU HAVE PAID TO USE THE SERVICE IN THE PRECEDING 12 MONTHS, WHICHEVER IS GREATER.</p>
+    <p>BECAUSE THE SERVICE PROCESSES FILES EXCLUSIVELY ON YOUR DEVICE AND WE HAVE NO ACCESS TO YOUR FILES, WE CANNOT BE HELD RESPONSIBLE FOR ANY LOSS, DISCLOSURE, OR COMPROMISE OF FILE CONTENTS UNDER ANY CIRCUMSTANCES.</p>
 
-                <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">6. Intellectual Property</h2>
-                <p class="text-gray-600 mb-4">
-                    The service uses open-source libraries which are subject to their respective licenses. Your files remain your property, and we make no claim to any content you process using this service.
-                </p>
+    <h2>6. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless PDF Private and its owners, operators, and contributors from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising from or related to:</p>
+    <ul>
+        <li>Your use of the Service.</li>
+        <li>Your breach of these Terms.</li>
+        <li>Your violation of any applicable law or regulation.</li>
+        <li>Any claim by a third party related to files you have processed using the Service.</li>
+        <li>Any claim that your use of the Service infringed the rights of a third party.</li>
+    </ul>
 
-                <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">7. Service Availability</h2>
-                <p class="text-gray-600 mb-4">
-                    We do not guarantee that the service will be available at all times. We reserve the right to modify, suspend, or discontinue the service at any time without notice.
-                </p>
+    <h2>7. Acceptable Use</h2>
+    <p>You agree not to use the Service to:</p>
+    <ul>
+        <li>Process files that you do not have the legal right to access or modify.</li>
+        <li>Infringe the intellectual property or privacy rights of any third party.</li>
+        <li>Process content that is illegal in your jurisdiction.</li>
+        <li>Attempt to reverse-engineer, decompile, or extract the source code of the Service beyond what is made publicly available.</li>
+        <li>Interfere with or disrupt the availability of the Service for other users.</li>
+    </ul>
 
-                <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">8. Changes to Terms</h2>
-                <p class="text-gray-600 mb-4">
-                    We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting. Your continued use of the service after changes are posted constitutes acceptance of the modified terms.
-                </p>
+    <h2>8. Intellectual Property</h2>
+    <p>All website content, branding, design, and code (excluding open-source libraries used under their respective licences) are owned by PDF Private or its licensors. You retain full ownership of any files you process using the Service. We claim no rights over your files or any output generated by the tools.</p>
 
-                <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">9. Governing Law</h2>
-                <p class="text-gray-600 mb-4">
-                    These terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.
-                </p>
+    <h2>9. Availability and Changes</h2>
+    <p>We may modify, suspend, or discontinue the Service (or any part of it) at any time without notice. We are not obligated to maintain, support, or update the Service. We reserve the right to modify these Terms at any time. Material changes will be reflected by an updated revision date on this page. Your continued use of the Service after changes are posted constitutes acceptance of the revised Terms.</p>
 
-                <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">10. Contact</h2>
-                <p class="text-gray-600">
-                    If you have any questions about these Terms of Service, please contact us.
-                </p>
+    <h2>10. Governing Law and Jurisdiction</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of England and Wales. Any disputes arising from or relating to these Terms or your use of the Service shall be subject to the exclusive jurisdiction of the courts of England and Wales, unless mandatory law in your jurisdiction provides otherwise.</p>
 
-                <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mt-8">
-                    <h3 class="text-lg font-semibold text-yellow-800 mt-0 mb-3 flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                        </svg>
-                        Important Reminder
-                    </h3>
-                    <p class="text-yellow-700 mb-0">
-                        Always keep backups of your original files. While we strive for accuracy, we cannot guarantee perfect results for all PDF files.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </main>
+    <h2>11. Severability</h2>
+    <p>If any provision of these Terms is found to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect.</p>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 py-8 mt-12">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
-            <p>All processing happens in your browser. Your files never leave your device.</p>
-        </div>
-    </footer>
+    <h2>12. Entire Agreement</h2>
+    <p>These Terms, together with our <a href="/privacy.html">Privacy Policy</a>, constitute the entire agreement between you and PDF Private regarding your use of the Service.</p>
+
+    <h2>13. Contact</h2>
+    <p>If you have any questions about these Terms, please contact us at: <a href="mailto:legal@pdfprivate.com">legal@pdfprivate.com</a></p>
+
+</div>
+
+<footer>
+    &copy; 2026 PDF Private. All rights reserved. |
+    <a href="/privacy.html">Privacy Policy</a> |
+    <a href="/terms.html">Terms of Service</a>
+</footer>
+
 </body>
 </html>
