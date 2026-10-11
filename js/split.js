@@ -23,7 +23,7 @@
     }
 
     // Configure PDF.js worker
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/vendor/pdf.worker.min.js';
 
     const { Utils, DragDropZone } = window.PDFTools;
     const { PDFDocument } = PDFLib;
