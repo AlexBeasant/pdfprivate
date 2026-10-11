@@ -1,39 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- head:start -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Private PDF Tools — No Upload, 100% Offline | PDF Private</title>
-    <meta name="description" content="Free online PDF tools that never upload your files. Merge, split, compress and convert PDFs entirely in your browser. 100% private, no sign-up required.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2322c55e'/%3E%3Cstop offset='100%25' style='stop-color:%230d9488'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Cpath d='M30 25h25l15 15v35a5 5 0 01-5 5H30a5 5 0 01-5-5V30a5 5 0 015-5z' fill='white'/%3E%3Cpath d='M55 25v15h15' fill='none' stroke='white' stroke-width='2'/%3E%3Crect x='32' y='45' width='20' height='3' rx='1' fill='%2322c55e'/%3E%3Crect x='32' y='52' width='28' height='3' rx='1' fill='%2322c55e'/%3E%3Crect x='32' y='59' width='16' height='3' rx='1' fill='%2322c55e'/%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                        }
-                    }
-                }
-            }
-        }
+    <title>Free Private PDF Tools — No Upload, Works Offline | PDF Private</title>
+    <meta name="description" content="Free PDF tools that never upload your files. Merge, compress, split, redact and convert PDFs entirely in your browser. No sign-up, no tracking.">
+    <link rel="canonical" href="https://pdfprivate.com/">
+    <meta name="theme-color" content="#16a34a">
+    <meta property="og:site_name" content="PDF Private">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Private PDF Tools — No Upload, Works Offline | PDF Private">
+    <meta property="og:description" content="Free PDF tools that never upload your files. Merge, compress, split, redact and convert PDFs entirely in your browser. No sign-up, no tracking.">
+    <meta property="og:url" content="https://pdfprivate.com/">
+    <meta property="og:image" content="https://pdfprivate.com/icons/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="preload" href="/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/sw-register.js" defer></script>
+    <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "name": "PDF Private",
+   "url": "https://pdfprivate.com/",
+   "description": "Free PDF tools that never upload your files. Merge, compress, split, redact and convert PDFs entirely in your browser. No sign-up, no tracking."
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Are my files uploaded to a server?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. PDF Private runs entirely in your web browser. Your file is read into your device's memory, processed by code running on your device, and saved straight back to your downloads. It never travels over the internet, so we never see it. You can even disconnect from the internet after the page loads and the tool still works."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is it really free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. There is no sign-up, no watermark, no daily limit and no paid tier. Because your device does the work, there are no server costs to pass on."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How can PDF tools work without uploading?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Modern browsers can run the same kind of PDF software that used to need a server. PDF Private loads open-source PDF libraries (PDF.js and pdf-lib) from this website, then does all the work on your own device."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do you track me?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. There are no analytics, advertising or tracking scripts and no cookies. Every file the site needs, including fonts, is served from pdfprivate.com itself, so no other company is contacted when you visit."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I use it offline?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Once you have visited a tool, it is saved by your browser and works without an internet connection. You can also install PDF Private as an app from your browser's menu."
+     }
+    }
+   ]
+  }
+ ]
+}
     </script>
+    <!-- head:end -->
     <script>
         // Check for saved theme preference or default to system preference
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -68,7 +117,7 @@
                             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 2l5 5h-5V4zM8 13h8v2H8v-2zm0 4h5v2H8v-2z"/>
                         </svg>
                     </div>
-                    <span class="text-xl" style="font-family: 'Space Grotesk', sans-serif;">
+                    <span class="text-xl font-brand">
                         <span class="font-bold text-gray-900 dark:text-white">PDF</span><span class="font-medium text-primary-600 dark:text-primary-400">Private</span>
                     </span>
                 </a>
@@ -97,7 +146,7 @@
 
     <!-- Hero + Tools Section -->
     <section class="min-h-[calc(100vh-4rem)] flex flex-col justify-center py-12">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Compact Hero -->
             <div class="text-center mb-12">
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4">
@@ -109,7 +158,7 @@
             </div>
 
             <!-- Main Tool Cards - Prominent and Central -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
 
                 <!-- Merge PDFs -->
                 <a href="pages/merge.html" class="tool-card-large group bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg shadow-gray-200/50 dark:shadow-black/30 border-2 border-gray-100 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-500 hover:shadow-xl hover:shadow-primary-100/50 dark:hover:shadow-primary-900/30">
@@ -142,7 +191,7 @@
                         </div>
                         <div class="flex-1">
                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">Compress PDF</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Reduce PDF file size without uploading. Choose your compression level.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Reduce PDF file size, or fit it under an exact limit like 200KB or 1MB.</p>
                         </div>
                     </div>
                     <div class="mt-6 flex items-center text-rose-600 dark:text-rose-400 font-semibold group-hover:translate-x-2 transition-transform">
@@ -209,6 +258,90 @@
                         </div>
                     </div>
                     <div class="mt-6 flex items-center text-orange-600 dark:text-orange-400 font-semibold group-hover:translate-x-2 transition-transform">
+                        <span>Get Started</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Redact PDF -->
+                <a href="pages/redact.html" class="tool-card-large group bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg shadow-gray-200/50 dark:shadow-black/30 border-2 border-gray-100 dark:border-gray-700 hover:border-slate-300 dark:hover:border-slate-500 hover:shadow-xl hover:shadow-slate-100/50 dark:hover:shadow-slate-900/30">
+                    <div class="flex items-start space-x-5">
+                        <div class="tool-icon w-16 h-16 bg-gradient-to-br from-slate-400 to-slate-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-slate-200 dark:shadow-slate-900/50">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">Redact PDF <span class="ml-1 align-middle text-xs font-semibold bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 px-2 py-0.5 rounded-full">New</span></h3>
+                            <p class="text-gray-600 dark:text-gray-400">Permanently black out names, numbers and other sensitive text.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex items-center text-slate-600 dark:text-slate-400 font-semibold group-hover:translate-x-2 transition-transform">
+                        <span>Get Started</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Remove Metadata -->
+                <a href="pages/remove-metadata.html" class="tool-card-large group bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg shadow-gray-200/50 dark:shadow-black/30 border-2 border-gray-100 dark:border-gray-700 hover:border-teal-300 dark:hover:border-teal-500 hover:shadow-xl hover:shadow-teal-100/50 dark:hover:shadow-teal-900/30">
+                    <div class="flex items-start space-x-5">
+                        <div class="tool-icon w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-teal-200 dark:shadow-teal-900/50">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Remove Metadata <span class="ml-1 align-middle text-xs font-semibold bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 px-2 py-0.5 rounded-full">New</span></h3>
+                            <p class="text-gray-600 dark:text-gray-400">Strip hidden author names, software and dates before sharing.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex items-center text-teal-600 dark:text-teal-400 font-semibold group-hover:translate-x-2 transition-transform">
+                        <span>Get Started</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Rotate PDF -->
+                <a href="pages/rotate.html" class="tool-card-large group bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg shadow-gray-200/50 dark:shadow-black/30 border-2 border-gray-100 dark:border-gray-700 hover:border-sky-300 dark:hover:border-sky-500 hover:shadow-xl hover:shadow-sky-100/50 dark:hover:shadow-sky-900/30">
+                    <div class="flex items-start space-x-5">
+                        <div class="tool-icon w-16 h-16 bg-gradient-to-br from-sky-400 to-sky-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-sky-200 dark:shadow-sky-900/50">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">Rotate PDF <span class="ml-1 align-middle text-xs font-semibold bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 px-2 py-0.5 rounded-full">New</span></h3>
+                            <p class="text-gray-600 dark:text-gray-400">Turn sideways pages the right way up, with no quality loss.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex items-center text-sky-600 dark:text-sky-400 font-semibold group-hover:translate-x-2 transition-transform">
+                        <span>Get Started</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Delete Pages -->
+                <a href="pages/delete-pages.html" class="tool-card-large group bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg shadow-gray-200/50 dark:shadow-black/30 border-2 border-gray-100 dark:border-gray-700 hover:border-red-300 dark:hover:border-red-500 hover:shadow-xl hover:shadow-red-100/50 dark:hover:shadow-red-900/30">
+                    <div class="flex items-start space-x-5">
+                        <div class="tool-icon w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-red-200 dark:shadow-red-900/50">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">Delete Pages <span class="ml-1 align-middle text-xs font-semibold bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 px-2 py-0.5 rounded-full">New</span></h3>
+                            <p class="text-gray-600 dark:text-gray-400">Remove blank, duplicate or unwanted pages from a PDF.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex items-center text-red-600 dark:text-red-400 font-semibold group-hover:translate-x-2 transition-transform">
                         <span>Get Started</span>
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -286,6 +419,36 @@
         </div>
     </section>
 
+    <!-- content:start -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">Frequently asked questions</h2>
+            <div class="space-y-3">
+                <details class="faq-item bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4">
+                    <summary class="font-medium text-gray-900 dark:text-white">Are my files uploaded to a server?</summary>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">No. PDF Private runs entirely in your web browser. Your file is read into your device&#x27;s memory, processed by code running on your device, and saved straight back to your downloads. It never travels over the internet, so we never see it. You can even disconnect from the internet after the page loads and the tool still works.</p>
+                </details>
+                <details class="faq-item bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4">
+                    <summary class="font-medium text-gray-900 dark:text-white">Is it really free?</summary>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Yes. There is no sign-up, no watermark, no daily limit and no paid tier. Because your device does the work, there are no server costs to pass on.</p>
+                </details>
+                <details class="faq-item bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4">
+                    <summary class="font-medium text-gray-900 dark:text-white">How can PDF tools work without uploading?</summary>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Modern browsers can run the same kind of PDF software that used to need a server. PDF Private loads open-source PDF libraries (PDF.js and pdf-lib) from this website, then does all the work on your own device.</p>
+                </details>
+                <details class="faq-item bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4">
+                    <summary class="font-medium text-gray-900 dark:text-white">Do you track me?</summary>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">No. There are no analytics, advertising or tracking scripts and no cookies. Every file the site needs, including fonts, is served from pdfprivate.com itself, so no other company is contacted when you visit.</p>
+                </details>
+                <details class="faq-item bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4">
+                    <summary class="font-medium text-gray-900 dark:text-white">Can I use it offline?</summary>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Yes. Once you have visited a tool, it is saved by your browser and works without an internet connection. You can also install PDF Private as an app from your browser&#x27;s menu.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- content:end -->
+
     <!-- Footer -->
     <footer class="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 py-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -296,7 +459,7 @@
                             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 2l5 5h-5V4zM8 13h8v2H8v-2zm0 4h5v2H8v-2z"/>
                         </svg>
                     </div>
-                    <span style="font-family: 'Space Grotesk', sans-serif;">
+                    <span class="font-brand">
                         <span class="font-bold text-gray-900 dark:text-white">PDF</span><span class="font-medium text-primary-600 dark:text-primary-400">Private</span>
                     </span>
                 </div>

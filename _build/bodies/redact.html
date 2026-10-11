@@ -1,0 +1,54 @@
+        <!-- Upload Zone -->
+        <div id="dropZone" class="drop-zone mb-6">
+            <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+            </svg>
+            <p class="text-lg font-medium text-gray-700 mb-1">Drag & drop a PDF file here</p>
+            <p class="text-sm text-gray-500 mb-4">or click to browse</p>
+            <button type="button" class="btn btn-secondary">Select PDF</button>
+        </div>
+
+        {{FILE_INFO}}
+
+        <!-- Loading State -->
+        <div id="loadingSection" class="hidden text-center py-12">
+            <div class="spinner mx-auto mb-4"></div>
+            <p class="text-gray-600" id="loadingText">Loading PDF pages...</p>
+        </div>
+
+        <!-- Redaction toolbar -->
+        <div id="toolbarSection" class="hidden mb-6 redact-toolbar">
+            <div class="bg-white border border-gray-200 rounded-xl p-4">
+                <label for="searchInput" class="block text-sm font-medium text-gray-700 mb-1">Find text to redact</label>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <input type="text" id="searchInput" placeholder="e.g. a name, account number or email"
+                        class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                    <button id="findBtn" class="btn btn-secondary text-sm py-2">Redact all matches</button>
+                    <button id="clearBoxesBtn" class="btn btn-secondary text-sm py-2">Remove all boxes</button>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">Or drag on any page to draw a box. Click the &times; on a box to remove it. <span id="boxCount" class="font-medium text-gray-700">0 boxes</span></p>
+            </div>
+        </div>
+
+        <!-- Pages -->
+        <div id="pagesSection" class="hidden mb-6">
+            <div id="pagesContainer"></div>
+        </div>
+
+        <!-- Options and warning -->
+        <div id="optionsSection" class="hidden options-panel mb-6">
+            <label class="flex items-start gap-2 text-sm text-gray-700 cursor-pointer">
+                <input type="checkbox" id="flattenAll" class="mt-1">
+                <span><strong>Flatten every page</strong> (safest). Also turns pages without boxes into images, removing any hidden text layers.</span>
+            </label>
+            <p class="text-xs text-gray-500 mt-3">How it works: each page with a box is turned into an image with the area blacked out, so the text underneath is permanently deleted, not just covered. Text on those pages can no longer be selected or searched. Bookmarks and form fields are not kept.</p>
+        </div>
+
+        {{PROGRESS:Applying redactions...}}
+
+        <!-- Action Buttons -->
+        <div id="actionSection" class="hidden">
+            <button id="applyBtn" class="btn btn-primary w-full sm:w-auto" disabled>Apply redactions</button>
+        </div>
+
+        {{RESULT:Redactions Applied!}}

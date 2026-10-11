@@ -1,38 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- head:start -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convert Images to PDF Free — No Upload | PDF Private</title>
-    <meta name="description" content="Convert JPG, PNG or WebP images to PDF without uploading. Fast, free and private — all processing happens in your browser.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2322c55e'/%3E%3Cstop offset='100%25' style='stop-color:%230d9488'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Cpath d='M30 25h25l15 15v35a5 5 0 01-5 5H30a5 5 0 01-5-5V30a5 5 0 015-5z' fill='white'/%3E%3Cpath d='M55 25v15h15' fill='none' stroke='white' stroke-width='2'/%3E%3Crect x='32' y='45' width='20' height='3' rx='1' fill='%2322c55e'/%3E%3Crect x='32' y='52' width='28' height='3' rx='1' fill='%2322c55e'/%3E%3Crect x='32' y='59' width='16' height='3' rx='1' fill='%2322c55e'/%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                        }
-                    }
-                }
-            }
-        }
+    <title>JPG to PDF — Convert Images to PDF Free, No Upload | PDF Private</title>
+    <meta name="description" content="Convert JPG, PNG or WebP images into a single PDF in your browser. Reorder pages, choose page size. Photos never leave your device.">
+    <link rel="canonical" href="https://pdfprivate.com/pages/images-to-pdf.html">
+    <meta name="theme-color" content="#16a34a">
+    <meta property="og:site_name" content="PDF Private">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JPG to PDF — Convert Images to PDF Free, No Upload | PDF Private">
+    <meta property="og:description" content="Convert JPG, PNG or WebP images into a single PDF in your browser. Reorder pages, choose page size. Photos never leave your device.">
+    <meta property="og:url" content="https://pdfprivate.com/pages/images-to-pdf.html">
+    <meta property="og:image" content="https://pdfprivate.com/icons/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="preload" href="/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/sw-register.js" defer></script>
+    <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Images to PDF",
+   "url": "https://pdfprivate.com/pages/images-to-pdf.html",
+   "description": "Convert JPG, PNG or WebP images into a single PDF in your browser. Reorder pages, choose page size. Photos never leave your device.",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any (runs in a web browser)",
+   "browserRequirements": "Requires a modern web browser with JavaScript",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "PDF Private",
+     "item": "https://pdfprivate.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Images to PDF",
+     "item": "https://pdfprivate.com/pages/images-to-pdf.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Are my files uploaded to a server?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. PDF Private runs entirely in your web browser. Your file is read into your device's memory, processed by code running on your device, and saved straight back to your downloads. It never travels over the internet, so we never see it. You can even disconnect from the internet after the page loads and the tool still works."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I convert photos from my phone?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Open PDF Private in your phone's browser and choose photos from your gallery. They are converted on the phone itself."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will image quality be reduced?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Images are placed into the PDF at their original quality. If the result is too large, use Compress PDF afterwards."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is it really free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. There is no sign-up, no watermark, no daily limit and no paid tier. Because your device does the work, there are no server costs to pass on."
+     }
+    }
+   ]
+  }
+ ]
+}
     </script>
+    <!-- head:end -->
 </head>
 <body class="min-h-screen bg-gray-50">
     <!-- Navigation -->
@@ -45,7 +113,7 @@
                             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 2l5 5h-5V4zM8 13h8v2H8v-2zm0 4h5v2H8v-2z"/>
                         </svg>
                     </div>
-                    <span class="text-xl" style="font-family: 'Space Grotesk', sans-serif;">
+                    <span class="text-xl font-brand">
                         <span class="font-bold text-gray-900">PDF</span><span class="font-medium text-primary-600">Private</span>
                     </span>
                 </a>
@@ -203,10 +271,66 @@
                 </div>
             </div>
         </div>
+
+        <!-- content:start -->
+        <section class="mt-12 space-y-10">
+            <div>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">How to images to PDF</h2>
+                <ol class="list-decimal pl-5 space-y-1 text-gray-700">
+                <li>Drop your images onto the page (JPG, PNG or WebP).</li>
+                <li>Drag them into the right order and pick your page options.</li>
+                <li>Click Convert and download your PDF.</li>
+                </ol>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Frequently asked questions</h2>
+                <div class="space-y-3">
+                <details class="faq-item bg-white border border-gray-200 rounded-xl p-4">
+                    <summary class="font-medium text-gray-900">Are my files uploaded to a server?</summary>
+                    <p class="mt-2 text-gray-600 text-sm leading-relaxed">No. PDF Private runs entirely in your web browser. Your file is read into your device&#x27;s memory, processed by code running on your device, and saved straight back to your downloads. It never travels over the internet, so we never see it. You can even disconnect from the internet after the page loads and the tool still works.</p>
+                </details>
+                <details class="faq-item bg-white border border-gray-200 rounded-xl p-4">
+                    <summary class="font-medium text-gray-900">Can I convert photos from my phone?</summary>
+                    <p class="mt-2 text-gray-600 text-sm leading-relaxed">Yes. Open PDF Private in your phone&#x27;s browser and choose photos from your gallery. They are converted on the phone itself.</p>
+                </details>
+                <details class="faq-item bg-white border border-gray-200 rounded-xl p-4">
+                    <summary class="font-medium text-gray-900">Will image quality be reduced?</summary>
+                    <p class="mt-2 text-gray-600 text-sm leading-relaxed">Images are placed into the PDF at their original quality. If the result is too large, use Compress PDF afterwards.</p>
+                </details>
+                <details class="faq-item bg-white border border-gray-200 rounded-xl p-4">
+                    <summary class="font-medium text-gray-900">Is it really free?</summary>
+                    <p class="mt-2 text-gray-600 text-sm leading-relaxed">Yes. There is no sign-up, no watermark, no daily limit and no paid tier. Because your device does the work, there are no server costs to pass on.</p>
+                </details>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Next step</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a href="/pages/compress.html" class="block bg-white border border-gray-200 rounded-xl p-4 hover:border-primary-400 hover:shadow-md transition">
+                    <div class="font-semibold text-gray-900">Compress PDF</div>
+                    <div class="text-sm text-gray-600 mt-1">Shrink a PDF, or fit it under an exact size.</div>
+                </a>
+                <a href="/pages/merge.html" class="block bg-white border border-gray-200 rounded-xl p-4 hover:border-primary-400 hover:shadow-md transition">
+                    <div class="font-semibold text-gray-900">Merge PDF</div>
+                    <div class="text-sm text-gray-600 mt-1">Combine several PDFs into one file.</div>
+                </a>
+                <a href="/pages/pdf-to-images.html" class="block bg-white border border-gray-200 rounded-xl p-4 hover:border-primary-400 hover:shadow-md transition">
+                    <div class="font-semibold text-gray-900">PDF to Images</div>
+                    <div class="text-sm text-gray-600 mt-1">Save PDF pages as JPG or PNG images.</div>
+                </a>
+                <a href="/pages/remove-metadata.html" class="block bg-white border border-gray-200 rounded-xl p-4 hover:border-primary-400 hover:shadow-md transition">
+                    <div class="font-semibold text-gray-900">Remove Metadata</div>
+                    <div class="text-sm text-gray-600 mt-1">Strip author, dates and hidden document info.</div>
+                </a>
+                </div>
+                <p class="mt-4 text-sm"><a href="/" class="text-primary-700 hover:underline">See all PDF tools &rarr;</a></p>
+            </div>
+        </section>
+        <!-- content:end -->
     </main>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="../vendor/pdf-lib.min.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/images-to-pdf.js"></script>
 </body>

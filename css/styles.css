@@ -535,3 +535,125 @@
 .gap-4 {
     gap: 1rem;
 }
+
+/* Rotate tool: animate page previews as they turn */
+.rotate-grid .page-thumbnail canvas {
+    transition: transform 0.25s ease;
+}
+
+.rotate-grid .page-thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Delete pages tool: marked pages */
+.page-thumbnail.marked-delete {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+}
+
+.page-thumbnail.marked-delete::after {
+    content: "Delete";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(239, 68, 68, 0.35);
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* Redact tool */
+.redact-page {
+    position: relative;
+    margin: 0 auto 1.5rem;
+    max-width: 100%;
+    background: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.redact-page canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.redact-layer {
+    position: absolute;
+    inset: 0;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.redact-page-label {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    pointer-events: none;
+}
+
+.redact-box {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.85);
+    outline: 2px solid #ef4444;
+}
+
+.redact-box.redact-preview {
+    background: rgba(0, 0, 0, 0.5);
+    outline-style: dashed;
+}
+
+.redact-remove {
+    position: absolute;
+    top: -0.65rem;
+    right: -0.65rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 9999px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    text-align: center;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.redact-toolbar {
+    position: sticky;
+    top: 0.5rem;
+    z-index: 20;
+}
+
+/* FAQ accordion on tool pages */
+.faq-item summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    float: right;
+    font-weight: 700;
+    color: #16a34a;
+}
+
+.faq-item[open] summary::after {
+    content: "\2212";
+}

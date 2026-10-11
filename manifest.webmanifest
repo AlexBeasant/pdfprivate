@@ -1,0 +1,16 @@
+{
+    "name": "PDF Private — Free PDF Tools, No Upload",
+    "short_name": "PDF Private",
+    "description": "Merge, compress, split, redact and convert PDFs entirely on your device. Works offline.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#f9fafb",
+    "theme_color": "#16a34a",
+    "icons": [
+        { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+        { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+        { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+    ]
+}

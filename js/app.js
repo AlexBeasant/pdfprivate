@@ -378,10 +378,125 @@ class ProgressTracker {
     }
 }
 
+// PDF.js runs its worker from our own domain, so no request leaves the site
+if (typeof pdfjsLib !== 'undefined') {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/vendor/pdf.worker.min.js';
+}
+
+/**
+ * Parse a page range string such as "1-3, 5, 7-10" into a Set of page numbers
+ * @param {string} rangeStr - Page range string
+ * @param {number} totalPages - Number of pages in the document
+ * @returns {Set<number>} Page numbers (1-based)
+ */
+function parsePageRange(rangeStr, totalPages) {
+    const pages = new Set();
+    for (const part of rangeStr.split(',')) {
+        const trimmed = part.trim();
+        if (!trimmed) continue;
+        if (trimmed.includes('-')) {
+            const [startStr, endStr] = trimmed.split('-');
+            const start = parseInt(startStr.trim(), 10);
+            const end = parseInt(endStr.trim(), 10);
+            if (!isNaN(start) && !isNaN(end)) {
+                for (let i = Math.max(1, start); i <= Math.min(totalPages, end); i++) pages.add(i);
+            }
+        } else {
+            const n = parseInt(trimmed, 10);
+            if (!isNaN(n) && n >= 1 && n <= totalPages) pages.add(n);
+        }
+    }
+    return pages;
+}
+
+/**
+ * Turn a Set of page numbers back into a compact range string ("1-3, 5")
+ * @param {Set<number>} pages - Page numbers
+ * @returns {string} Range string
+ */
+function formatPageRange(pages) {
+    const sorted = Array.from(pages).sort((a, b) => a - b);
+    if (sorted.length === 0) return '';
+    const ranges = [];
+    let start = sorted[0];
+    let end = sorted[0];
+    for (let i = 1; i < sorted.length; i++) {
+        if (sorted[i] === end + 1) {
+            end = sorted[i];
+        } else {
+            ranges.push(start === end ? `${start}` : `${start}-${end}`);
+            start = end = sorted[i];
+        }
+    }
+    ranges.push(start === end ? `${start}` : `${start}-${end}`);
+    return ranges.join(', ');
+}
+
+/**
+ * Render a thumbnail for every page of a PDF.js document into a grid
+ * @param {object} pdf - PDF.js document
+ * @param {HTMLElement} container - Grid element to fill
+ * @param {object} options - { scale, onClick(pageNum, thumbEl), onProgress(done, total) }
+ * @returns {Promise<HTMLElement[]>} Thumbnail elements in page order
+ */
+async function renderPageThumbnails(pdf, container, options = {}) {
+    const scale = options.scale || 0.4;
+    container.innerHTML = '';
+    const thumbs = [];
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        const page = await pdf.getPage(pageNum);
+        const viewport = page.getViewport({ scale });
+        const thumb = document.createElement('div');
+        thumb.className = 'page-thumbnail';
+        thumb.dataset.page = pageNum;
+
+        const canvas = document.createElement('canvas');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+
+        const label = document.createElement('div');
+        label.className = 'page-number';
+        label.textContent = `Page ${pageNum}`;
+
+        const indicator = document.createElement('div');
+        indicator.className = 'select-indicator';
+        indicator.innerHTML = '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>';
+
+        thumb.appendChild(canvas);
+        thumb.appendChild(label);
+        thumb.appendChild(indicator);
+        if (options.onClick) thumb.addEventListener('click', () => options.onClick(pageNum, thumb));
+        container.appendChild(thumb);
+        thumbs.push(thumb);
+        if (options.onProgress) options.onProgress(pageNum, pdf.numPages);
+    }
+    return thumbs;
+}
+
+/**
+ * Convert a canvas to JPEG bytes
+ * @param {HTMLCanvasElement} canvas - Source canvas
+ * @param {number} quality - JPEG quality (0-1)
+ * @returns {Promise<Uint8Array>} JPEG bytes
+ */
+function canvasToJpegBytes(canvas, quality) {
+    return new Promise((resolve, reject) => {
+        canvas.toBlob(async (blob) => {
+            if (!blob) return reject(new Error('Could not encode page image'));
+            resolve(new Uint8Array(await blob.arrayBuffer()));
+        }, 'image/jpeg', quality);
+    });
+}
+
 // Export utilities for use in other modules
 window.PDFTools = {
     Utils,
     DragDropZone,
     SortableList,
-    ProgressTracker
+    ProgressTracker,
+    parsePageRange,
+    formatPageRange,
+    renderPageThumbnails,
+    canvasToJpegBytes
 };
